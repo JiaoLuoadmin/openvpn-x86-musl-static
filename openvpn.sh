@@ -25,9 +25,9 @@ mkdir -p $SRC
 ######## ####################################################################
 
 mkdir $SRC/musl && cd $SRC/musl
-$WGET http://www.musl-libc.org/releases/musl-1.1.0.tar.gz
-tar zxvf musl-1.1.0.tar.gz
-cd musl-1.1.0
+$WGET http://www.musl-libc.org/releases/musl-1.1.2.tar.gz
+tar zxvf musl-1.1.2.tar.gz
+cd musl-1.1.2
 
 ./configure \
 --prefix=$DEST \
@@ -96,9 +96,9 @@ make install
 ########### #################################################################
 
 mkdir $SRC/openssl && cd $SRC/openssl
-$WGET https://www.openssl.org/source/openssl-1.0.1g.tar.gz --no-check-certificate
-tar zxvf openssl-1.0.1g.tar.gz
-cd openssl-1.0.1g
+$WGET https://www.openssl.org/source/openssl-1.0.1h.tar.gz --no-check-certificate
+tar zxvf openssl-1.0.1h.tar.gz
+cd openssl-1.0.1h
 
 cat << "EOF" > openssl-musl.patch
 --- a/crypto/ui/ui_openssl.c    2013-09-08 11:00:10.130572803 +0200
@@ -134,9 +134,9 @@ make CC=$CC install
 ########### #################################################################
 
 mkdir $SRC/openvpn && cd $SRC/openvpn
-$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.2.tar.gz
-tar zxvf openvpn-2.3.2.tar.gz
-cd openvpn-2.3.2
+$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.4.tar.gz
+tar zxvf openvpn-2.3.4.tar.gz
+cd openvpn-2.3.4
 
 LZO_CFLAGS="-I$DEST/include" \
 LZO_LIBS="-L$DEST/lib" \
