@@ -25,9 +25,9 @@ mkdir -p $SRC
 ######## ####################################################################
 
 mkdir $SRC/musl && cd $SRC/musl
-$WGET http://www.musl-libc.org/releases/musl-1.1.2.tar.gz
-tar zxvf musl-1.1.2.tar.gz
-cd musl-1.1.2
+$WGET http://www.musl-libc.org/releases/musl-1.1.4.tar.gz
+tar zxvf musl-1.1.4.tar.gz
+cd musl-1.1.4
 
 ./configure \
 --prefix=$DEST \
@@ -42,9 +42,9 @@ make install
 ########## ##################################################################
 
 mkdir $SRC/kernel && cd $SRC/kernel
-$WGET https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.57.tar.xz
-tar xvJf linux-3.2.57.tar.xz
-cd linux-3.2.57
+$WGET https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.60.tar.xz
+tar xvJf linux-3.2.60.tar.xz
+cd linux-3.2.60
 cp -rf ./include $DEST
 ln -s asm-generic $DEST/include/asm
 cd $DEST/include/netinet
@@ -76,9 +76,9 @@ make install
 ####### #####################################################################
 
 mkdir $SRC/lzo2 && cd $SRC/lzo2
-$WGET http://www.oberhumer.com/opensource/lzo/download/lzo-2.06.tar.gz
-tar zxvf lzo-2.06.tar.gz
-cd lzo-2.06
+$WGET http://www.oberhumer.com/opensource/lzo/download/lzo-2.08.tar.gz
+tar zxvf lzo-2.08.tar.gz
+cd lzo-2.08
 
 CC=$CC \
 LDFLAGS=$LDFLAGS \
@@ -96,9 +96,9 @@ make install
 ########### #################################################################
 
 mkdir $SRC/openssl && cd $SRC/openssl
-$WGET https://www.openssl.org/source/openssl-1.0.1h.tar.gz --no-check-certificate
-tar zxvf openssl-1.0.1h.tar.gz
-cd openssl-1.0.1h
+$WGET https://www.openssl.org/source/openssl-1.0.1i.tar.gz --no-check-certificate
+tar zxvf openssl-1.0.1i.tar.gz
+cd openssl-1.0.1i
 
 cat << "EOF" > openssl-musl.patch
 --- a/crypto/ui/ui_openssl.c    2013-09-08 11:00:10.130572803 +0200
@@ -153,7 +153,8 @@ $CONFIGURE \
 --sysconfdir=/etc \
 --localstatedir=/var \
 --with-crypto-library=openssl \
---disable-plugin-auth-pam
+--disable-plugin-auth-pam \
+--enable-password-save
 
 $MAKE LIBS="-all-static -lssl -lcrypto -llzo2"
 make install
