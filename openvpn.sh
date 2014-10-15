@@ -25,9 +25,9 @@ mkdir -p $SRC
 ######## ####################################################################
 
 mkdir $SRC/musl && cd $SRC/musl
-$WGET http://www.musl-libc.org/releases/musl-1.1.4.tar.gz
-tar zxvf musl-1.1.4.tar.gz
-cd musl-1.1.4
+$WGET http://www.musl-libc.org/releases/musl-1.1.5.tar.gz
+tar zxvf musl-1.1.5.tar.gz
+cd musl-1.1.5
 
 ./configure \
 --prefix=$DEST \
