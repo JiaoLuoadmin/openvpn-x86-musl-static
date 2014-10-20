@@ -42,9 +42,9 @@ make install
 ########## ##################################################################
 
 mkdir $SRC/kernel && cd $SRC/kernel
-$WGET https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.60.tar.xz
-tar xvJf linux-3.2.60.tar.xz
-cd linux-3.2.60
+$WGET https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.63.tar.xz
+tar xvJf linux-3.2.63.tar.xz
+cd linux-3.2.63
 cp -rf ./include $DEST
 ln -s asm-generic $DEST/include/asm
 cd $DEST/include/netinet
@@ -96,9 +96,9 @@ make install
 ########### #################################################################
 
 mkdir $SRC/openssl && cd $SRC/openssl
-$WGET https://www.openssl.org/source/openssl-1.0.1i.tar.gz --no-check-certificate
-tar zxvf openssl-1.0.1i.tar.gz
-cd openssl-1.0.1i
+$WGET https://www.openssl.org/source/openssl-1.0.1j.tar.gz --no-check-certificate
+tar zxvf openssl-1.0.1j.tar.gz
+cd openssl-1.0.1j
 
 cat << "EOF" > openssl-musl.patch
 --- a/crypto/ui/ui_openssl.c    2013-09-08 11:00:10.130572803 +0200
